@@ -1,10 +1,11 @@
+import 'package:travelapp/views/search/search_screen.dart';
 import 'package:travelapp/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
-import '../components/pages/another.dart';
-import '../components/pages/details.dart';
-import '../components/pages/home.dart';
+import '../utils/pages/another.dart';
+// import '../components/pages/details.dart';
+import '../utils/pages/home.dart';
 
 class Routing extends StatefulWidget {
   const Routing({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class _RoutingState extends State<Routing> {
   List routing = [
     const Home(),
     const Another(),
+    const SearchScreen(),
     const Another(),
     const Another(),
   ];
@@ -32,9 +34,7 @@ class _RoutingState extends State<Routing> {
           margin: EdgeInsets.all(displayWidth * .05),
           height: displayWidth * .155,
           alignment: Alignment.center,
-          decoration: const BoxDecoration(
-              color: Color(0xff140c47),
-              borderRadius: BorderRadius.all(Radius.circular(35))),
+          decoration: const BoxDecoration(color: Color(0xff140c47), borderRadius: BorderRadius.all(Radius.circular(35))),
           child: currentIndex == 4
               ? GestureDetector(
                   onTap: () => Navigator.of(context).pop(),

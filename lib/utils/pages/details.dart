@@ -10,8 +10,7 @@ import '../../data/data.dart';
 class Details extends StatefulWidget {
   final int index;
   final String hero;
-  const Details({Key? key, required this.index, required this.hero})
-      : super(key: key);
+  const Details({Key? key, required this.index, required this.hero}) : super(key: key);
 
   @override
   State<Details> createState() => DdetailsState();
@@ -64,9 +63,7 @@ class DdetailsState extends State<Details> {
             child: Column(
               children: [
                 Material(
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(40),
-                      bottomRight: Radius.circular(40)),
+                  borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40)),
                   elevation: 4,
                   child: Hero(
                     tag: widget.hero,
@@ -75,29 +72,21 @@ class DdetailsState extends State<Details> {
                       width: displayWidth,
                       decoration: BoxDecoration(
                           color: Colors.red,
-                          borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(40),
-                              bottomRight: Radius.circular(40)),
-                          image: DecorationImage(
-                              image: AssetImage(data[widget.index]["image"]),
-                              fit: BoxFit.cover)),
+                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40)),
+                          image: DecorationImage(image: AssetImage(data[widget.index]["image"]), fit: BoxFit.cover)),
                       child: Stack(
                         fit: StackFit.expand,
                         children: [
                           AnimatedCrossFade(
                             firstChild: Container(),
                             secondChild: appBar(),
-                            crossFadeState: appBarVAR
-                                ? CrossFadeState.showSecond
-                                : CrossFadeState.showFirst,
+                            crossFadeState: appBarVAR ? CrossFadeState.showSecond : CrossFadeState.showFirst,
                             duration: const Duration(milliseconds: 400),
                           ),
                           AnimatedCrossFade(
                             firstChild: Container(),
                             secondChild: bottomBarImages(),
-                            crossFadeState: appBarVAR
-                                ? CrossFadeState.showSecond
-                                : CrossFadeState.showFirst,
+                            crossFadeState: appBarVAR ? CrossFadeState.showSecond : CrossFadeState.showFirst,
                             duration: const Duration(milliseconds: 600),
                           ),
                         ],
@@ -108,8 +97,7 @@ class DdetailsState extends State<Details> {
                 const SizedBox(height: 15),
                 Container(
                   width: displayWidth,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -136,7 +124,6 @@ class DdetailsState extends State<Details> {
                           )
                         ],
                       ),
-                      
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: const [
@@ -148,9 +135,8 @@ class DdetailsState extends State<Details> {
                               fontFamily: 'Montserrat',
                             ),
                           ),
-                         
                           SizedBox(height: 5),
-                           Text(
+                          Text(
                             "\$200",
                             style: TextStyle(
                               color: kSecondaryColor,
@@ -171,7 +157,7 @@ class DdetailsState extends State<Details> {
                   height: 4,
                 ),
                 const SizedBox(height: 15),
-                
+
                 const ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Color(0xffeaeaea),
@@ -191,7 +177,7 @@ class DdetailsState extends State<Details> {
                     ),
                   ),
                 ),
-                 ListTile(
+                ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Color(0xffeaeaea),
                     radius: 20,
@@ -210,7 +196,7 @@ class DdetailsState extends State<Details> {
                     ),
                   ),
                 ),
-                 ListTile(
+                ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Color(0xffeaeaea),
                     radius: 20,
@@ -255,7 +241,8 @@ class DdetailsState extends State<Details> {
                     radius: 20,
                     child: Icon(
                       Ionicons.time_outline,
-                      color: kSecondaryColor,size: 15,
+                      color: kSecondaryColor,
+                      size: 15,
                     ),
                   ),
                   title: Text(
@@ -270,7 +257,7 @@ class DdetailsState extends State<Details> {
                     "Tour",
                     style: TextStyle(
                       color: kSecondaryColor,
-                       fontSize: 12,
+                      fontSize: 12,
                       fontFamily: 'Montserrat',
                     ),
                   ),
@@ -302,30 +289,30 @@ class DdetailsState extends State<Details> {
                 // )
                 SizedBox(height: 30),
                 CarouselSlider(
-          options: CarouselOptions(
-            // height: 200.0,
-            enlargeCenterPage: true,
-            autoPlay: true,
-            aspectRatio: 16 / 9,
-          ),
-          items: sliderImage.map((imageUrl) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
+                  options: CarouselOptions(
+                    // height: 200.0,
+                    enlargeCenterPage: true,
+                    autoPlay: true,
+                    aspectRatio: 16 / 9,
                   ),
-                  child: Image.asset(
-                    imageUrl,
-                    fit: BoxFit.fill,
-                  ),
-                );
-              },
-            );
-          }).toList(),
-        ),
+                  items: sliderImage.map((imageUrl) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: Image.asset(
+                            imageUrl,
+                            fit: BoxFit.fill,
+                          ),
+                        );
+                      },
+                    );
+                  }).toList(),
+                ),
               ],
             ),
           )),
@@ -333,9 +320,7 @@ class DdetailsState extends State<Details> {
               margin: EdgeInsets.all(displayWidth * .05),
               height: displayWidth * .155,
               alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                  color: Color(0xff140c47),
-                  borderRadius: BorderRadius.all(Radius.circular(35))),
+              decoration: const BoxDecoration(color: Color(0xff140c47), borderRadius: BorderRadius.all(Radius.circular(35))),
               child: GestureDetector(
                 onTap: () => Navigator.of(context).pop(),
                 child: Row(
@@ -448,26 +433,19 @@ class DdetailsState extends State<Details> {
                         data.length,
                         (index) => Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 4, vertical: 10),
+                                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(24),
                                   child: Stack(
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.circular(24)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    data[index]["image"]),
-                                                fit: BoxFit.cover)),
+                                            borderRadius: const BorderRadius.all(Radius.circular(24)),
+                                            image: DecorationImage(image: AssetImage(data[index]["image"]), fit: BoxFit.cover)),
                                       ),
                                       index == (data.length - 1)
                                           ? Container(
-                                              color: Colors.blue.shade800
-                                                  .withOpacity(0.4),
+                                              color: Colors.blue.shade800.withOpacity(0.4),
                                               child: const Center(
                                                 child: Text(
                                                   "+5",

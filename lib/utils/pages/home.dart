@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ionicons/ionicons.dart';
+// import 'package:ionicons/ionicons.dart';
 import '../../data/data.dart';
-import '../../routing/routing.dart';
+// import '../../routing/routing.dart';
 import '../../Models/model.dart';
 
 class Home extends StatefulWidget {
@@ -53,9 +53,7 @@ class _HomeState extends State<Home> {
                   onPressed: (int index) {
                     // Update the selected state
                     setState(() {
-                      for (int buttonIndex = 0;
-                          buttonIndex < isSelected.length;
-                          buttonIndex++) {
+                      for (int buttonIndex = 0; buttonIndex < isSelected.length; buttonIndex++) {
                         isSelected[buttonIndex] = (buttonIndex == index);
                       }
                     });
@@ -71,18 +69,18 @@ class _HomeState extends State<Home> {
               modelCategories(),
               SizedBox(height: 30),
               Padding(
-          padding: EdgeInsets.symmetric(horizontal: _padding),
-          child: Text(
-            'Discover more',
-            style: TextStyle(
-              color: kSecondaryColor,
-              fontSize: 20,
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        SizedBox(height: 20),
+                padding: EdgeInsets.symmetric(horizontal: _padding),
+                child: Text(
+                  'Discover more',
+                  style: TextStyle(
+                    color: kSecondaryColor,
+                    fontSize: 20,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
               CarouselSlider(
                 options: CarouselOptions(
                   // height: 200.0,
@@ -120,9 +118,7 @@ class _HomeState extends State<Home> {
     return Container(
       height: 50,
       width: 70,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.black)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), border: Border.all(color: Colors.black)),
       child: Center(child: Text(label)),
     );
   }
@@ -167,15 +163,7 @@ class _HomeState extends State<Home> {
                 //   ),
                 // ),
                 // const SizedBox(height: 4),
-                const Text(
-                  'Travel',
-                  style: TextStyle(
-                    color: kSecondaryColor,
-                    fontSize: 24,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                const Text('Travel', style: headerTextStyle),
               ],
             ),
           ),
@@ -332,8 +320,7 @@ class _HomeState extends State<Home> {
                                 CircleAvatar(
                                   backgroundColor: const Color(0xffeaeaea),
                                   radius: 26,
-                                  backgroundImage:
-                                      AssetImage(data_2[i]["image"]),
+                                  backgroundImage: AssetImage(data_2[i]["image"]),
                                 ),
                                 const SizedBox(height: 15),
                                 Text(
